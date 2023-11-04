@@ -7,7 +7,7 @@ import model.Teacher;
 import java.util.List;
 
 public class StudentGroupService {
-    public StudentGroup crereateStudentGroup(Teacher teacher, List<Student> students){
+    public StudentGroup createStudentGroup(Teacher teacher, List<Student> students){
         return new StudentGroup(teacher, students);
     }
 }

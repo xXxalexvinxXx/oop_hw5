@@ -10,6 +10,7 @@ import java.util.Locale;
 public class Controller {
     private final DataService dataService = new DataService();
     public final StudentView studentView = new StudentView();
+    public final TeacherView teacherView = new TeacherView();
 
     public void createStudent(String firstName, String secondName, String lastName){
         dataService.create(firstName, secondName, lastName, Type.STUDENT);
@@ -21,28 +22,10 @@ public class Controller {
             studentView.printOnConsole((Student) user);
         }
     }
-
-    //region hw
-
-    private StudentGroupService studentGroupService;
-    public StudentGroup createStudentGroup(int teacherId, List<Student> studentId){
-        Teacher teacher = getTeacher(teacherId);
-        List<Student> students = getStudents(studentId);
-
-        return studentGroupService.crereateStudentGroup(teacher, students);
+    public void getAllTeacher(){
+        List<User> userList = dataService.getAllTeacher();
+        for (User user: userList) {
+            teacherView.printOnConsole((Teacher) user);
+        }
     }
-
-    private Teacher getTeacher(int teacherID){
-
-        return teacher;
-    }
-
-    private List<Student> getStudents(List<Long> studentId){
-
-        return students;
-    }
-
-
-
-    //endregion
 }
